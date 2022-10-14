@@ -11,7 +11,7 @@
 		9F0BA3F428F93D2D00E09DB0 /* WordDetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BA3F328F93D2D00E09DB0 /* WordDetailLabel.swift */; };
 		9F5B07E228EBE4D900F6ED0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B07E128EBE4D900F6ED0F /* AppDelegate.swift */; };
 		9F5B07E428EBE4D900F6ED0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B07E328EBE4D900F6ED0F /* SceneDelegate.swift */; };
-		9F5B07E628EBE4D900F6ED0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B07E528EBE4D900F6ED0F /* ViewController.swift */; };
+		9F5B07E628EBE4D900F6ED0F /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B07E528EBE4D900F6ED0F /* WordViewController.swift */; };
 		9F5B07EB28EBE4DA00F6ED0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B07EA28EBE4DA00F6ED0F /* Assets.xcassets */; };
 		9F5B07EE28EBE4DA00F6ED0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B07EC28EBE4DA00F6ED0F /* LaunchScreen.storyboard */; };
 		9F986C5728EC07310083A6FD /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F986C5628EC07310083A6FD /* WordCell.swift */; };
@@ -24,7 +24,7 @@
 		9F5B07DE28EBE4D900F6ED0F /* Werdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5B07E128EBE4D900F6ED0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F5B07E328EBE4D900F6ED0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9F5B07E528EBE4D900F6ED0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9F5B07E528EBE4D900F6ED0F /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		9F5B07EA28EBE4DA00F6ED0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F5B07ED28EBE4DA00F6ED0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F5B07EF28EBE4DA00F6ED0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +43,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F0BA3F528F94E3300E09DB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F0BA3FA28F94E9B00E09DB0 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9F0BA3F628F94E4300E09DB0 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				9F0BA3F328F93D2D00E09DB0 /* WordDetailLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		9F0BA3F728F94E5200E09DB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F0BA3EB28F695C500E09DB0 /* Word.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9F0BA3F828F94E5C00E09DB0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9F986C5628EC07310083A6FD /* WordCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9F0BA3F928F94E7100E09DB0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B07E128EBE4D900F6ED0F /* AppDelegate.swift */,
+				9F5B07E328EBE4D900F6ED0F /* SceneDelegate.swift */,
+				9F5B07EA28EBE4DA00F6ED0F /* Assets.xcassets */,
+				9F5B07EC28EBE4DA00F6ED0F /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		9F0BA3FA28F94E9B00E09DB0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B07E528EBE4D900F6ED0F /* WordViewController.swift */,
+				9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		9F5B07D528EBE4D900F6ED0F = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +114,12 @@
 		9F5B07E028EBE4D900F6ED0F /* Werdd */ = {
 			isa = PBXGroup;
 			children = (
-				9F5B07E128EBE4D900F6ED0F /* AppDelegate.swift */,
-				9F5B07E328EBE4D900F6ED0F /* SceneDelegate.swift */,
-				9F5B07E528EBE4D900F6ED0F /* ViewController.swift */,
-				9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */,
-				9F0BA3F328F93D2D00E09DB0 /* WordDetailLabel.swift */,
-				9F0BA3EB28F695C500E09DB0 /* Word.swift */,
-				9F5B07EA28EBE4DA00F6ED0F /* Assets.xcassets */,
-				9F5B07EC28EBE4DA00F6ED0F /* LaunchScreen.storyboard */,
+				9F0BA3F928F94E7100E09DB0 /* Support */,
+				9F0BA3F828F94E5C00E09DB0 /* Cells */,
+				9F0BA3F728F94E5200E09DB0 /* Model */,
+				9F0BA3F628F94E4300E09DB0 /* Labels */,
+				9F0BA3F528F94E3300E09DB0 /* Views */,
 				9F5B07EF28EBE4DA00F6ED0F /* Info.plist */,
-				9F986C5628EC07310083A6FD /* WordCell.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -146,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5B07E628EBE4D900F6ED0F /* ViewController.swift in Sources */,
+				9F5B07E628EBE4D900F6ED0F /* WordViewController.swift in Sources */,
 				9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */,
 				9F986C5728EC07310083A6FD /* WordCell.swift in Sources */,
 				9F0BA3F428F93D2D00E09DB0 /* WordDetailLabel.swift in Sources */,

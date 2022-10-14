@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WordViewController: UIViewController {
     
     let wordLabel = UILabel()
     let partsOfSpeechLabel = UILabel()
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension WordViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordArray.count
     }
