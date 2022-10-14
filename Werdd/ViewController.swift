@@ -27,9 +27,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        title = "Werdd"
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        
         let word1 = Word(title: "Jump", partOfSpeech: "verb", definition: "push oneself off a surface and into the air by using the muscles in one's legs and feet.")
         let word2 = Word(title: "Field", partOfSpeech: "noun", definition: "vast plane of land with grass")
         let word3 = Word(title: "Magical", partOfSpeech: "adjective", definition: "wizardy of a natural kind, usually with illusion or sleight of hand")
@@ -37,11 +37,11 @@ class ViewController: UIViewController {
         wordArray.append(word2)
         wordArray.append(word3)
         addSubViews()
+        configureNavigationBar()
         style()
         configureTableView()
         configureConstraints()
-        
-        
+        configureRandomButton()
     }
     
     
@@ -51,6 +51,11 @@ class ViewController: UIViewController {
         tableView.register(WordCell.self, forCellReuseIdentifier: cellReuseID)
         tableView.backgroundColor = .systemBackground
         tableView.layer.cornerRadius = 12
+    }
+    
+    private func configureNavigationBar() {
+        title = "Werdd"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
@@ -105,6 +110,14 @@ class ViewController: UIViewController {
         wordLabel.text = word?.title
         definitionLabel.text = word?.definition
         partsOfSpeechLabel.text = word?.partOfSpeech
+    }
+    
+    private func configureRandomButton() {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .large)
+               
+        let largeBoldDoc = UIImage(systemName: "arrow.clockwise.circle", withConfiguration: largeConfig)
+
+        randomWordButton.setImage(largeBoldDoc, for: .normal)
     }
     
     
@@ -163,10 +176,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = WordDetailViewController()
-        detailVC.word = wordArray[indexPath.row]
-        navigationController?.pushViewController(detailVC, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {      
+        let word = wordArray[indexPath.row]
+        navigationController?.pushViewController(WordDetailViewController(with: word), animated: true)
     }
 }
 
