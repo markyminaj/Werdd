@@ -27,7 +27,7 @@ class WordViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        view.backgroundColor = .systemBackground
         
         
         let word1 = Word(title: "Jump", partOfSpeech: "verb", definition: "push oneself off a surface and into the air by using the muscles in one's legs and feet.")
