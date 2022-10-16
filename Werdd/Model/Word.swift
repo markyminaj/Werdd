@@ -18,3 +18,12 @@ struct Word {
         self.definition = definition
     }
 }
+
+struct NetworkWord: Decodable {
+    let word: String
+    let results: [Result]
+}
+
+struct Result: Decodable {
+    let definition, partOfSpeech: String?
+}

@@ -15,6 +15,9 @@
 		9F5B07EB28EBE4DA00F6ED0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B07EA28EBE4DA00F6ED0F /* Assets.xcassets */; };
 		9F5B07EE28EBE4DA00F6ED0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B07EC28EBE4DA00F6ED0F /* LaunchScreen.storyboard */; };
 		9F986C5728EC07310083A6FD /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F986C5628EC07310083A6FD /* WordCell.swift */; };
+		9FA8CB9128FBBE6900502831 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8CB9028FBBE6900502831 /* UIView+Ext.swift */; };
+		9FA8CB9428FC9E0A00502831 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8CB9328FC9E0A00502831 /* NetworkManager.swift */; };
+		9FA8CB9628FCA4C200502831 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8CB9528FCA4C200502831 /* UIViewController+Ext.swift */; };
 		9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		9F5B07ED28EBE4DA00F6ED0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F5B07EF28EBE4DA00F6ED0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F986C5628EC07310083A6FD /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		9FA8CB9028FBBE6900502831 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		9FA8CB9328FC9E0A00502831 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9FA8CB9528FCA4C200502831 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,8 @@
 		9F5B07E028EBE4D900F6ED0F /* Werdd */ = {
 			isa = PBXGroup;
 			children = (
+				9FA8CB9228FC9E0000502831 /* Managers */,
+				9FA8CB8F28FBBE5B00502831 /* Extensions */,
 				9F0BA3F928F94E7100E09DB0 /* Support */,
 				9F0BA3F828F94E5C00E09DB0 /* Cells */,
 				9F0BA3F728F94E5200E09DB0 /* Model */,
@@ -122,6 +130,23 @@
 				9F5B07EF28EBE4DA00F6ED0F /* Info.plist */,
 			);
 			path = Werdd;
+			sourceTree = "<group>";
+		};
+		9FA8CB8F28FBBE5B00502831 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9FA8CB9028FBBE6900502831 /* UIView+Ext.swift */,
+				9FA8CB9528FCA4C200502831 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FA8CB9228FC9E0000502831 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9FA8CB9328FC9E0A00502831 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA8CB9428FC9E0A00502831 /* NetworkManager.swift in Sources */,
+				9FA8CB9128FBBE6900502831 /* UIView+Ext.swift in Sources */,
+				9FA8CB9628FCA4C200502831 /* UIViewController+Ext.swift in Sources */,
 				9F5B07E628EBE4D900F6ED0F /* WordViewController.swift in Sources */,
 				9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */,
 				9F986C5728EC07310083A6FD /* WordCell.swift in Sources */,

@@ -69,8 +69,6 @@ class WordDetailViewController: UIViewController {
         return sv
     }()
     
-   
-    
     //MARK: Initialize Views and Labels
     let definitionView = UIView()
     let synonymView = UIView()

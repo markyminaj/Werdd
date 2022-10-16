@@ -25,23 +25,44 @@ class WordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        view.backgroundColor = .systemBackground
-        
-        
+        configureBackgroundColor()
+        configureNavigationBar()
+        configureArrayData()
+        addSubViews()
+        configureTableView()
+        configureConstraints()
+        style()
+        configureRandomButton()
+    }
+    
+    
+    private func configureBackgroundColor() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(named: "BackgroundGradientColor1")!.cgColor, UIColor(named: "BackgroundGradientColor2")!.cgColor]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    private func configureNavigationBar() {
+        title = "Werdd 📖"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    
+    private func configureArrayData() {
         let word1 = Word(title: "Jump", partOfSpeech: "verb", definition: "push oneself off a surface and into the air by using the muscles in one's legs and feet.")
         let word2 = Word(title: "Field", partOfSpeech: "noun", definition: "vast plane of land with grass")
         let word3 = Word(title: "Magical", partOfSpeech: "adjective", definition: "wizardy of a natural kind, usually with illusion or sleight of hand")
-        wordArray.append(word1)
-        wordArray.append(word2)
-        wordArray.append(word3)
-        addSubViews()
-        configureNavigationBar()
-        style()
-        configureTableView()
-        configureConstraints()
-        configureRandomButton()
+        wordArray.append(contentsOf: [word1, word2, word3])
+    }
+    
+    private func addSubViews() {
+        view.addSubview(wordView)
+        view.addSubview(wordLabel)
+        view.addSubview(partsOfSpeechLabel)
+        view.addSubview(definitionLabel)
+        view.addSubview(randomWordButton)
+        view.addSubview(tableView)
     }
     
     
@@ -53,22 +74,21 @@ class WordViewController: UIViewController {
         tableView.layer.cornerRadius = 12
     }
     
-    private func configureNavigationBar() {
-        title = "Werdd"
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    
-    private func addSubViews() {
-        view.addSubview(wordView)
-        view.addSubview(wordLabel)
-        view.addSubview(partsOfSpeechLabel)
-        view.addSubview(definitionLabel)
-        view.addSubview(randomWordButton)
-        view.addSubview(tableView)
-    }
-    
     private func style() {
+        
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [
+            UIColor.red.cgColor,
+            UIColor.purple.cgColor,
+            UIColor.cyan.cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.locations = [0, 1]
+        gradient.frame = wordView.bounds
+        
+        
         wordLabel.translatesAutoresizingMaskIntoConstraints = false
         partsOfSpeechLabel.translatesAutoresizingMaskIntoConstraints = false
         definitionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -76,8 +96,12 @@ class WordViewController: UIViewController {
         randomWordButton.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        wordView.backgroundColor = .systemCyan
+        
+        wordView.backgroundColor = .clear
         wordView.layer.cornerRadius = 20
+        wordView.layer.borderWidth = 3
+        wordView.layer.borderColor = .init(gray: 2.0, alpha: 0.8)
+        //wordView.layer.insertSublayer(gradient, at: )
         
         wordLabel.text = "Programming"
         wordLabel.font = UIFont.boldSystemFont(ofSize: 30)
@@ -100,24 +124,77 @@ class WordViewController: UIViewController {
         var config = UIButton.Configuration.borderless()
         config.image = UIImage(systemName: "arrow.clockwise.circle")
         randomWordButton.configuration = config
-        
-       
-        
     }
     
     @objc private func randomWord() {
-        let word = wordArray.randomElement()
-        wordLabel.text = word?.title
-        definitionLabel.text = word?.definition
-        partsOfSpeechLabel.text = word?.partOfSpeech
+          fetchRandomWord()
     }
     
     private func configureRandomButton() {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .large)
-               
         let largeBoldDoc = UIImage(systemName: "arrow.clockwise.circle", withConfiguration: largeConfig)
-
         randomWordButton.setImage(largeBoldDoc, for: .normal)
+    }
+    
+    private func fetchRandomWord() {
+        self.showLoadingView()
+        let headers = [
+            "X-RapidAPI-Key": "387f4a1a63msh8baae1fe770db61p183b64jsnebef364836ba",
+            "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            
+            if (error != nil) {
+                print(error ?? "")
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse ?? "")
+                
+                guard let data = data else {
+                    print("Bad decodable data, cannot convert")
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedData =  try decoder.decode(NetworkWord.self, from: data)
+                    DispatchQueue.main.async {
+                        self.dismissLoadingView()
+                        self.wordLabel.text = decodedData.word
+                        let definition = decodedData.results[0].definition
+                        let partofspeech = decodedData.results[0].partOfSpeech
+                        self.definitionLabel.text = definition
+                        self.partsOfSpeechLabel.text = partofspeech
+                    }
+                    
+                    
+                } catch {
+                    print("Bad decoding")
+                    DispatchQueue.main.async {
+                        self.showBadDecodingAlert()
+                        self.dismissLoadingView()
+                    }
+                }
+            }
+        })
+
+        dataTask.resume()
+    }
+    
+    private func showBadDecodingAlert() {
+        let alertController = UIAlertController(title: "Unable to decode", message: "Unable to retrieve word data. Please try again.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            print("Ok pressed")
+        })
+        present(alertController, animated: true, completion: nil)
     }
     
     
