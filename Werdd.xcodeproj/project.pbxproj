@@ -23,6 +23,7 @@
 		9FA8CBAE28FCCFBE00502831 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8CB9C28FCCFBE00502831 /* Rubik-Bold.ttf */; };
 		9FA8CBB428FCCFBE00502831 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8CBA228FCCFBE00502831 /* Rubik-Italic.ttf */; };
 		9FA8CBB928FCCFBE00502831 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8CBA728FCCFBE00502831 /* Rubik-Regular.ttf */; };
+		9FB590F628FCF8BF0037EF64 /* WordDetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */; };
 		9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		9FA8CB9C28FCCFBE00502831 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		9FA8CBA228FCCFBE00502831 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		9FA8CBA728FCCFBE00502831 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailContainerView.swift; sourceTree = "<group>"; };
 		9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9F0BA3FA28F94E9B00E09DB0 /* Screens */,
+				9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				9FA8CB9628FCA4C200502831 /* UIViewController+Ext.swift in Sources */,
 				9F5B07E628EBE4D900F6ED0F /* WordViewController.swift in Sources */,
 				9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */,
+				9FB590F628FCF8BF0037EF64 /* WordDetailContainerView.swift in Sources */,
 				9F986C5728EC07310083A6FD /* WordCell.swift in Sources */,
 				9F0BA3F428F93D2D00E09DB0 /* WordDetailLabel.swift in Sources */,
 				9F5B07E228EBE4D900F6ED0F /* AppDelegate.swift in Sources */,
