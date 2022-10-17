@@ -131,7 +131,7 @@ class WordViewController: UIViewController {
         definitionLabel.numberOfLines = .max
         definitionLabel.lineBreakMode = .byTruncatingTail
         
-        randomWordButton.tintColor = .white
+        randomWordButton.tintColor = .label
         randomWordButton.layer.cornerRadius = 12
         randomWordButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         randomWordButton.addTarget(self, action: #selector(randomWord), for: .touchUpInside)

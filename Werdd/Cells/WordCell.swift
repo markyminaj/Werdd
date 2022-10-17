@@ -66,7 +66,20 @@ class WordCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
     }
     
+    //MARK: - Only partial covers the cell, maybe only covers the contentView's content
     private func configureUI() {
+        
+//        let gradient = CAGradientLayer()
+//        gradient.type = .axial
+//        gradient.colors = [
+//            UIColor(named: "WordViewColor1")!.cgColor, UIColor(named: "WordViewColor2")!.cgColor
+//        ]
+//        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+//        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+//        gradient.locations = [0.1,1]
+//        gradient.frame = self.bounds // I think this line is what needs to change ..CGRect(x: 10, y: 10, width: 357, height: 90)
+//
+//        self.layer.insertSublayer(gradient, at: 0)
         
         
         wordAndPartStackView.addArrangedSubview(wordLabel)
@@ -85,18 +98,9 @@ class WordCell: UITableViewCell {
             wordAndDefinitionLabelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             wordAndDefinitionLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
-//            wordLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-//            wordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-//            wordLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-//            wordLabel.heightAnchor.constraint(equalToConstant: 20),
-//
+
             partsOfSpeechLabel.centerYAnchor.constraint(equalTo: wordLabel.centerYAnchor),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordLabel.trailingAnchor, constant: 8),
-//
-//            definitionLabel.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 8),
-//            definitionLabel.leadingAnchor.constraint(equalTo: wordLabel.leadingAnchor),
-            
-            
         ])
     }
     
