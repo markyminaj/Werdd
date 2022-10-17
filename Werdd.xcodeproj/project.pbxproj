@@ -24,6 +24,7 @@
 		9FA8CBB428FCCFBE00502831 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8CBA228FCCFBE00502831 /* Rubik-Italic.ttf */; };
 		9FA8CBB928FCCFBE00502831 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8CBA728FCCFBE00502831 /* Rubik-Regular.ttf */; };
 		9FB590F628FCF8BF0037EF64 /* WordDetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */; };
+		9FB590F828FD874E0037EF64 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FB590F728FD874E0037EF64 /* Rubik-SemiBold.ttf */; };
 		9FE8EF8C28F63E2F00DA0893 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		9FA8CBA228FCCFBE00502831 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		9FA8CBA728FCCFBE00502831 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailContainerView.swift; sourceTree = "<group>"; };
+		9FB590F728FD874E0037EF64 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		9FE8EF8B28F63E2F00DA0893 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +66,8 @@
 		9F0BA3F528F94E3300E09DB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9F0BA3FA28F94E9B00E09DB0 /* Screens */,
 				9FB590F528FCF8BF0037EF64 /* WordDetailContainerView.swift */,
+				9F0BA3FA28F94E9B00E09DB0 /* Screens */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 		9FA8CB9A28FCCFBE00502831 /* static */ = {
 			isa = PBXGroup;
 			children = (
+				9FB590F728FD874E0037EF64 /* Rubik-SemiBold.ttf */,
 				9FA8CB9C28FCCFBE00502831 /* Rubik-Bold.ttf */,
 				9FA8CBA228FCCFBE00502831 /* Rubik-Italic.ttf */,
 				9FA8CBA728FCCFBE00502831 /* Rubik-Regular.ttf */,
@@ -256,6 +259,7 @@
 				9FA8CBB428FCCFBE00502831 /* Rubik-Italic.ttf in Resources */,
 				9F5B07EB28EBE4DA00F6ED0F /* Assets.xcassets in Resources */,
 				9FA8CBB928FCCFBE00502831 /* Rubik-Regular.ttf in Resources */,
+				9FB590F828FD874E0037EF64 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

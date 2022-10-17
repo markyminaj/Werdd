@@ -31,7 +31,14 @@ class WordDetailLabel: UILabel {
     }
     
     func setLabelFont(with size: CGFloat, weight: UIFont.Weight) {
-        font = UIFont.systemFont(ofSize: size, weight: weight)
+        if weight == UIFont.Weight.bold {
+            font = UIFont.init(name: "Rubik-Bold", size: size)
+        } else if weight == UIFont.Weight.semibold {
+            font = UIFont.init(name: "Rubik-Semibold", size: size)
+        } else {
+            font = UIFont.init(name: "Rubik-Regular", size: size)
+        }
+        
     }
     
     func setColor(of color: UIColor) {
