@@ -30,7 +30,7 @@ class WordCell: UITableViewCell {
     private let wordLabel: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
-        lb.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        lb.font = UIFont.init(name: "Rubik-Bold", size: 18)
         lb.textAlignment = .left
         lb.textColor = .label
         lb.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -40,7 +40,7 @@ class WordCell: UITableViewCell {
     private let partsOfSpeechLabel: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
-        lb.font = UIFont.italicSystemFont(ofSize: 14)
+        lb.font = UIFont.init(name: "Rubik-Italic", size: 14)
         lb.textColor = .secondaryLabel
         lb.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return lb
@@ -49,27 +49,21 @@ class WordCell: UITableViewCell {
     private let definitionLabel: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
-        lb.font = UIFont(name: "Courier New", size: 14)
-        lb.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        lb.font = UIFont.init(name: "Rubik-Bold", size: 14)
         lb.textColor = .secondaryLabel
-        lb.numberOfLines = 3
+        lb.numberOfLines = 0
         return lb
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "cellReuseID")
-        
         configureUI()
-        
     }
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
-        
-        
     }
     
     private func configureUI() {
@@ -83,7 +77,7 @@ class WordCell: UITableViewCell {
         contentView.addSubview(wordAndDefinitionLabelStackView)
         contentView.layer.cornerRadius = 20
         contentView.backgroundColor = .systemOrange
-        contentView.clipsToBounds = false
+        backgroundColor = .clear
         
         NSLayoutConstraint.activate([
             

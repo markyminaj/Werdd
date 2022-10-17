@@ -15,6 +15,8 @@ class WordViewController: UIViewController {
     let wordView = UIView()
     let randomWordButton = UIButton(type: .custom)
     
+    let cellgradient = CAGradientLayer()
+    
     
     let tableView = UITableView()
     let cellReuseID = "cellReuseID"
@@ -26,6 +28,7 @@ class WordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundColor()
+        configureWordViewBackgroundColor()
         configureNavigationBar()
         configureArrayData()
         addSubViews()
@@ -36,12 +39,28 @@ class WordViewController: UIViewController {
     }
     
     
+    
     private func configureBackgroundColor() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor(named: "BackgroundGradientColor1")!.cgColor, UIColor(named: "BackgroundGradientColor2")!.cgColor]
-        gradientLayer.frame = view.bounds
+        gradientLayer.frame =  view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
+        
     }
+    
+    private func configureWordViewBackgroundColor() {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [
+            UIColor(named: "WordViewColor1")!.cgColor, UIColor(named: "WordViewColor2")!.cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.locations = [0.1,1]
+        gradient.frame = CGRect(x: 0, y: 0, width: 369, height: 200)
+        wordView.layer.addSublayer(gradient)
+    }
+    
     
     private func configureNavigationBar() {
         title = "Werdd 📖"
@@ -70,50 +89,45 @@ class WordViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WordCell.self, forCellReuseIdentifier: cellReuseID)
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .clear
         tableView.layer.cornerRadius = 12
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
     }
     
-    private func style() {
-        
-        let gradient = CAGradientLayer()
-        gradient.type = .axial
-        gradient.colors = [
-            UIColor.red.cgColor,
-            UIColor.purple.cgColor,
-            UIColor.cyan.cgColor
-        ]
-        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradient.locations = [0, 1]
-        gradient.frame = wordView.bounds
-        
-        
+    private func configureAutoMasks() {
         wordLabel.translatesAutoresizingMaskIntoConstraints = false
         partsOfSpeechLabel.translatesAutoresizingMaskIntoConstraints = false
         definitionLabel.translatesAutoresizingMaskIntoConstraints = false
         wordView.translatesAutoresizingMaskIntoConstraints = false
         randomWordButton.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func style() {
         
         
-        wordView.backgroundColor = .clear
+        configureWordViewBackgroundColor()
+        configureAutoMasks()
+        
         wordView.layer.cornerRadius = 20
         wordView.layer.borderWidth = 3
+        wordView.clipsToBounds = true
         wordView.layer.borderColor = .init(gray: 2.0, alpha: 0.8)
-        //wordView.layer.insertSublayer(gradient, at: )
+        wordView.backgroundColor = .systemRed
         
         wordLabel.text = "Programming"
-        wordLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        wordLabel.font = UIFont.init(name: "Rubik-Bold", size: 20)
+        
         wordLabel.lineBreakMode = .byCharWrapping
         wordLabel.numberOfLines = 3
         wordLabel.minimumScaleFactor = 20
         
         partsOfSpeechLabel.text = "adjective"
-        partsOfSpeechLabel.font = UIFont.italicSystemFont(ofSize: 20)
+        partsOfSpeechLabel.font = UIFont.init(name: "Rubik-Italic", size: 18)
         
         definitionLabel.text = "This is some definition of the word programming that may or may not be true this is just filler text"
-        definitionLabel.font = UIFont(name: "Courier New", size: 14)
+        definitionLabel.font = UIFont.init(name: "Rubik-Regular", size: 18)
         definitionLabel.numberOfLines = .max
         definitionLabel.lineBreakMode = .byTruncatingTail
         
@@ -190,7 +204,7 @@ class WordViewController: UIViewController {
     }
     
     private func showBadDecodingAlert() {
-        let alertController = UIAlertController(title: "Unable to decode", message: "Unable to retrieve word data. Please try again.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Oops! There was a problem", message: "Unable to retrieve word data. Please try again.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
             print("Ok pressed")
         })
@@ -204,6 +218,7 @@ class WordViewController: UIViewController {
             wordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             wordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             wordView.heightAnchor.constraint(equalToConstant: 200),
+            wordView.widthAnchor.constraint(equalToConstant: 350),
             
             wordLabel.topAnchor.constraint(equalTo: wordView.topAnchor, constant: padding),
             wordLabel.leadingAnchor.constraint(equalTo: wordView.leadingAnchor, constant: padding),
