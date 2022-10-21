@@ -21,7 +21,7 @@ struct Word {
 
 struct NetworkWord: Decodable {
     let word: String
-    let results: [Result]
+    let results: [Result]?
 }
 
 struct Result: Decodable {
