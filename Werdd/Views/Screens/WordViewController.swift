@@ -93,8 +93,6 @@ class WordViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         configureConstraints()
         configureRandomButton()
         configureCollectionView()
-        
-        
     }
     
     
@@ -125,6 +123,8 @@ class WordViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         title = "Werdd 📖"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: barButtonImage, style: .plain, target: self, action: #selector(rightBarButtonPressed))
+        navigationItem.rightBarButtonItem?.tintColor = .systemBackground
+        
     }
     
     @objc func rightBarButtonPressed() {
@@ -391,12 +391,6 @@ extension WordViewController: UICollectionViewDataSource, UICollectionViewDelega
         let word = wordArray[indexPath.row]
         navigationController?.pushViewController(WordDetailViewController(with: word), animated: true)
     }
-    
-    
-    
-    
-    
-    
 }
 
 
