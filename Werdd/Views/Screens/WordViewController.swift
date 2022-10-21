@@ -66,7 +66,7 @@ class WordViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.backgroundColor = .lightGray
+        collectionView.backgroundColor = .clear
         collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.identifier)
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0)
         
@@ -250,7 +250,6 @@ class WordViewController: UIViewController, UISearchResultsUpdating, UISearchBar
     }
     
    
-    
     private func fetchRandomWord() {
         self.showLoadingView()
         let headers = [
@@ -290,8 +289,6 @@ class WordViewController: UIViewController, UISearchResultsUpdating, UISearchBar
                         self.definitionLabel.text = definition
                         self.partsOfSpeechLabel.text = partofspeech
                     }
-                    
-                    
                 } catch {
                     print("Bad decoding")
                     DispatchQueue.main.async {

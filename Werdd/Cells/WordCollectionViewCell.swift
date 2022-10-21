@@ -10,13 +10,11 @@ import UIKit
 class WordCollectionViewCell: UICollectionViewCell {
     static let identifier = "collectionCell"
     
-    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
-        
         stackView.alignment = .leading
         return stackView
     }()
@@ -74,7 +72,9 @@ class WordCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureUI() {
-        contentView.backgroundColor = .systemBackground
+        configureGradient()
+        
+        contentView.backgroundColor = .clear
         contentView.addSubview(stackView)
         
         topHStack.addArrangedSubview(titleLabel)
@@ -82,7 +82,6 @@ class WordCollectionViewCell: UICollectionViewCell {
         
         stackView.addArrangedSubview(topHStack)
         stackView.addArrangedSubview(definitionLabel)
-        
         
         contentView.contentScaleFactor = 0.4
         contentView.layer.cornerRadius = 10
@@ -98,17 +97,30 @@ class WordCollectionViewCell: UICollectionViewCell {
             definitionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             definitionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         ])
-        
-        
-        
-        
-        
     }
     
     func configureCell(word: String, partOfSpeech: String?, definition: String?) {
-        titleLabel.text = word
-        partofSpeechLabel.text = partOfSpeech
-        definitionLabel.text = definition
+        titleLabel.text = word.lowercased()
+        partofSpeechLabel.text = partOfSpeech?.lowercased()
+        definitionLabel.text = definition?.lowercased()
+    }
+    
+    private func configureGradient() {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.cornerRadius = 10
+        
+        gradient.colors = [
+            UIColor(named: "WordViewColor1")!.cgColor, UIColor(named: "WordViewColor2")!.cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.locations = [0.1,1]
+        gradient.frame = contentView.bounds // I think this line is what needs to change ..CGRect(x: 10, y: 10, width: 357, height: 90)
+
+        contentView.layer.insertSublayer(gradient, at: 0)
+        
+        
     }
     
 }
